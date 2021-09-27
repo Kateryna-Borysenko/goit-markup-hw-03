@@ -6,8 +6,13 @@
   --transparent-white-color: rgba(255, 255, 255, 0.6);
   --black-color: #000000;
   --dark-bg-color: #2f303a;
-  --light-gray-bg-color: #e5e5e5;
+  /* --light-gray-bg-color: #e5e5e5; */
   --gray-bg-color: #f5f4fa;
+  --border-color: #ECECEC;
+
+  --portfolio-list-gap: 20px;
+  --card-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
 
   --primary-font-family: "Roboto";
   --accent-font-family: "Raleway";
@@ -37,6 +42,11 @@ h6,
 p {
   margin: 0;
 }
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
 ul {
   margin: 0;
   padding: 0;
@@ -56,12 +66,18 @@ ul {
 /* header */
 .page-header {
   background-color: var(--white-color);
+  border-bottom: 1px solid var(--border-color);
+ 
 }
 .header-box {
   display: flex;
+  justify-content: space-between;
 }
 .logo {
+  display: block;
   color: var(--black-color);
+  margin-right: 93px;
+  
 
   font-family: var(--accent-font-family);
   font-size: 26px;
@@ -74,6 +90,7 @@ ul {
 }
 .nav-bar {
   display: flex;
+  align-items: center;
 }
 .site-nav .link,
 .contacts .link {
@@ -84,6 +101,15 @@ ul {
   line-height: 1.17;
   letter-spacing: 0.02em;
 }
+.site-nav .list:not(:last-child),
+.contacts .list:not(:last-child) {
+  margin-right: 50px;
+}
+.site-nav a,
+.contacts a {
+  display: block;
+  padding: 32px 0;
+}
 
 .site-nav .link:hover,
 .site-nav .link:focus,
@@ -93,6 +119,9 @@ ul {
 }
 .site-nav .link.current {
   color: var(--accent-color);
+}
+.contacts {
+  display: flex;
 }
 .contacts .link {
   color: var(--primary-text-color);
@@ -133,8 +162,12 @@ ul {
 }
 .advantages .box {
   display: flex;
+  justify-content: space-between;
   padding-top: 64px;
   padding-bottom: 94px;
+}
+.advantages .list {
+  width: 24%;
 }
 .advantages .description {
   font-size: 14px;
@@ -142,7 +175,6 @@ ul {
   letter-spacing: 0.03em;
 }
 .button {
-  min-width: 200px;
   border: 1px solid transparent;
   border-radius: 4px;
   cursor: pointer;
@@ -177,7 +209,7 @@ ul {
 }
 .team {
   padding: 94px 0;
-  background-color: var(--light-gray-bg-color);
+  background-color: var(--gray-bg-color);
 }
 .team .box {
   display: flex;
@@ -188,12 +220,10 @@ ul {
   width: 270px;
 
   background-color: var(--white-color);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
+  box-shadow: var(--card-shadow);
 }
 .position-item img {
-  display: block;
   margin-bottom: 30px;
 }
 .position-item .list-title {
@@ -213,13 +243,12 @@ ul {
 }
 .advantages,
 .what-we-do {
-  background-color: var(--gray-bg-color);
+  background-color: var(--white-color);
 }
-.what-we-do img {
-  display: block;
-}
+
 .what-we-do .box {
   display: flex;
+  justify-content: space-between;
   padding-bottom: 94px;
 }
 
@@ -262,6 +291,9 @@ ul {
 .portfolio {
   background-color: var(--white-color);
 }
+.filter {
+  display: flex;
+}
 .filter .button {
   background-color: var(--gray-bg-color);
   color: var(--title-text-color);
@@ -279,6 +311,18 @@ ul {
 .filter .button:focus {
   background-color: var(--accent-color);
   color: var(--white-color);
+}
+.portfolio-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* margin-left: calc(-1 * var(--portfolio-list-gap));
+  margin-top: calc(-1 * var(--portfolio-list-gap)); */
+}
+.portfolio-list > .portfolio-item {
+  /* flex-basis: calc(100% / 3 - var(--portfolio-list-gap));
+  margin-left: var(--portfolio-list-gap);
+  margin-top: var(--portfolio-list-gap); */
 }
 .portfolio-item .list-title {
   text-transform: none;
