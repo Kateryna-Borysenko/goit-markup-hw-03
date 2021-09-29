@@ -6,11 +6,11 @@
   --transparent-white-color: rgba(255, 255, 255, 0.6);
   --black-color: #000000;
   --dark-bg-color: #2f303a;
-  /* --light-gray-bg-color: #e5e5e5; */
   --gray-bg-color: #f5f4fa;
-  --border-color: #ECECEC;
+  --border-color: #ececec;
+  --card-border-color: #eeeeee;
 
-  --portfolio-list-gap: 20px;
+  --card-set-gap: 30px;
   --card-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
 
@@ -25,9 +25,7 @@ html {
 *::after {
   box-sizing: inherit;
 }
-/* body * {
-    outline: 1px solid red;
-}  */
+
 body {
   color: var(--primary-text-color);
 
@@ -58,8 +56,7 @@ ul {
   text-decoration: none;
 }
 .container {
-  /* outline: 1px solid red; */
-  max-width: 1770px;
+  max-width: 1200px;
   padding: 0 15px;
   margin: 0 auto;
 }
@@ -67,7 +64,6 @@ ul {
 .page-header {
   background-color: var(--white-color);
   border-bottom: 1px solid var(--border-color);
- 
 }
 .header-box {
   display: flex;
@@ -77,7 +73,6 @@ ul {
   display: block;
   color: var(--black-color);
   margin-right: 93px;
-  
 
   font-family: var(--accent-font-family);
   font-size: 26px;
@@ -127,7 +122,7 @@ ul {
   color: var(--primary-text-color);
 }
 
-/* main */
+/* main-index */
 .site-nav {
   display: flex;
 }
@@ -167,7 +162,7 @@ ul {
   padding-bottom: 94px;
 }
 .advantages .list {
-  width: 24%;
+  width: 23%;
 }
 .advantages .description {
   font-size: 14px;
@@ -194,6 +189,11 @@ ul {
   line-height: 1.88;
   letter-spacing: 0.06em;
 }
+.button.primary:focus,
+.button.primary:hover {
+  color: var(--title-text-color);
+  background-color: var(--gray-bg-color);
+}
 .section-title {
   margin-top: 0;
   margin-bottom: 50px;
@@ -204,9 +204,7 @@ ul {
   letter-spacing: 0.03em;
   text-align: center;
 }
-.team * {
-  /* outline: 1px solid royalblue; */
-}
+
 .team {
   padding: 94px 0;
   background-color: var(--gray-bg-color);
@@ -287,14 +285,22 @@ ul {
   margin-bottom: 0;
 }
 
-/* page-portfolio */
+/* main-portfolio */
 .portfolio {
+  padding: 94px 0;
   background-color: var(--white-color);
 }
 .filter {
   display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.filter .list:not(:last-child) {
+  margin-right: 8px;
 }
 .filter .button {
+  padding: 6px 22px;
   background-color: var(--gray-bg-color);
   color: var(--title-text-color);
 
@@ -312,25 +318,36 @@ ul {
   background-color: var(--accent-color);
   color: var(--white-color);
 }
-.portfolio-list {
+
+.card-set {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  /* margin-left: calc(-1 * var(--portfolio-list-gap));
-  margin-top: calc(-1 * var(--portfolio-list-gap)); */
+  margin-left: calc(-1 * var(--card-set-gap));
+  margin-top: calc(-1 * var(--card-set-gap));
 }
-.portfolio-list > .portfolio-item {
-  /* flex-basis: calc(100% / 3 - var(--portfolio-list-gap));
-  margin-left: var(--portfolio-list-gap);
-  margin-top: var(--portfolio-list-gap); */
+.card-set > .item {
+  border: 1px solid var(--card-border-color);
+  flex-basis: calc(100% / 3 - var(--card-set-gap));
+  margin-left: var(--card-set-gap);
+  margin-top: var(--card-set-gap);
 }
-.portfolio-item .list-title {
+.item .card-content {
+  padding: 20px 24px;
+}
+
+.item .card-heading {
+  color: var(--title-text-color);
   text-transform: none;
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
 }
-.portfolio-item .description {
+
+.item .card-text {
   font-size: 16px;
   line-height: 1.9;
   letter-spacing: 0.03em;
